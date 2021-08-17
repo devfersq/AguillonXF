@@ -1,0 +1,326 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:search="clr-namespace:ProyectoAguillon.Search"
+             xmlns:views="clr-namespace:ProyectoAguillon.Views"
+             xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             mc:Ignorable="d"
+             x:Class="ProyectoAguillon.Views.HomePage">
+    
+    <Shell.TitleView>
+
+        <StackLayout Orientation="Horizontal" Padding="0,0,5,0">
+            <Image Source="logoblack.png" HeightRequest="200"
+               HorizontalOptions="CenterAndExpand"
+               VerticalOptions="CenterAndExpand"/>            
+            <Image Source="cart_white.png" HorizontalOptions="End" VerticalOptions="Center" HeightRequest="20"/>
+        </StackLayout>
+        
+    </Shell.TitleView>
+
+    <Shell.SearchHandler>
+
+        <search:ProductosSearchHandler Placeholder="Buscar"
+                                       ShowsResults="True"
+                                       DisplayMemberName="Nombre"
+                                       ItemTemplate="{StaticResource ProductoSearchTemplate}"
+                                       SelectedItemNavigationTarget="{x:Type views:ProductoDetailPage}"
+                                       SearchBoxVisibility="Collapsible"/>
+    </Shell.SearchHandler>
+
+    <ContentPage.Content>
+        <ScrollView>                   
+            <StackLayout Spacing="0">
+
+                <StackLayout Orientation="Horizontal" BackgroundColor="Black" >
+                    <Button Text="Ingresa tu dirección" BackgroundColor="Black" TextColor="White" ImageSource="ubicacion" Clicked="DireccionSelected" />
+                </StackLayout>
+                
+                <StackLayout HeightRequest="300">
+                    <CarouselView ItemsSource="{Binding carrusel}" IndicatorView="Indicador">
+                        <CarouselView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout >
+                                    <Image Source="{Binding Imagen}"  Aspect="Fill" HeightRequest="300"/>                                
+                                </StackLayout>
+                            </DataTemplate>
+                        </CarouselView.ItemTemplate>
+                    </CarouselView>
+                    <IndicatorView x:Name="Indicador" IndicatorsShape="Circle" IndicatorColor="LightGray" SelectedIndicatorColor="Black" HorizontalOptions="CenterAndExpand" Margin="0,10"  />
+                </StackLayout>
+                <StackLayout Padding="10">
+                    <Label Text="CATEGORIAS" HorizontalOptions="Center" FontSize="Title" />
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition  Width="*" />
+                            <ColumnDefinition  Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <StackLayout Grid.Row="0" Grid.Column="0">
+                            <Button ImageSource="cabello.png"  CornerRadius="10" HeightRequest="120" />
+                            <Label Text="CABELLO" HorizontalOptions="Center"/>
+                        </StackLayout>
+                        <StackLayout Grid.Row="0" Grid.Column="1">
+                            <Button ImageSource="piel.png" BackgroundColor="LightGray" CornerRadius="10" HeightRequest="120"/>
+                            <Label Text="PIEL" HorizontalOptions="Center"/>
+                        </StackLayout>
+                        <StackLayout Grid.Row="0" Grid.Column="2">
+                            <Button ImageSource="cosmeticos.png" BackgroundColor="LightGray" CornerRadius="10" HeightRequest="120"/>
+                            <Label Text="COSMETICOS" HorizontalOptions="Center"/>
+                        </StackLayout>
+                        <StackLayout Grid.Row="1" Grid.Column="0">
+                            <Button ImageSource="unas.png" BackgroundColor="LightGray" CornerRadius="10" HeightRequest="120"/>
+                            <Label Text="UÑAS" HorizontalOptions="Center"/>
+                        </StackLayout>
+                        <StackLayout Grid.Row="1" Grid.Column="1">
+                            <Button ImageSource="barberia.png" BackgroundColor="LightGray" CornerRadius="10" HeightRequest="120"/>
+                            <Label Text="BARBERIA" HorizontalOptions="Center"/>
+                        </StackLayout>
+                        <StackLayout Grid.Row="1" Grid.Column="2">
+                            <Button ImageSource="glam.png" BackgroundColor="LightGray" CornerRadius="10" HeightRequest="120"/>
+                            <Label Text="GLAM" HorizontalOptions="Center"/>
+                        </StackLayout>            
+                    
+                    </Grid>
+                </StackLayout>                
+
+                    <StackLayout>
+                        
+                <Frame HasShadow="True"
+                                BorderColor="DarkGray"
+                                CornerRadius="10"
+                                Margin="20"
+                                HeightRequest="600"
+                                HorizontalOptions="CenterAndExpand"
+                                VerticalOptions="Center">
+                        <StackLayout>
+
+                            <Label Text="PRODUCTO DE LA SEMANA" FontSize="Title" FontAttributes="Bold"/>
+
+                            <Image Source="bbt" 
+                                        Aspect="AspectFill"
+                                        HeightRequest="300"
+                                        WidthRequest="400"
+                                        HorizontalOptions="CenterAndExpand"
+                                        BackgroundColor="LightGray"/>
+                            <Label Text="Cera para barba y cabello BigBros."
+                                        HorizontalOptions="Start"
+                                        FontSize="Large" FontAttributes="Bold"/>
+                            <Label Text="Acabado natural y alta fijación"
+                                        FontAttributes="Italic"
+                                        HorizontalOptions="Start"
+                                        MaxLines="2"
+                                        LineBreakMode="TailTruncation"
+                                        FontSize="Large"/>
+                            <Label Text="-40%"
+                                        FontAttributes="Italic"
+                                        HorizontalOptions="Start"                                           
+                                        LineBreakMode="TailTruncation"
+                                        FontSize="Subtitle"/>
+
+                            <Grid Padding="10">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="0.60*" />
+                                        <ColumnDefinition Width="0.20*" />
+                                        <ColumnDefinition Width="0.20*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                <Label Grid.Column="0"
+                                        Text="$115"
+                                        FontAttributes="Bold"
+                                        HorizontalOptions="Start" 
+                                        VerticalOptions="Center"
+                                        LineBreakMode="TailTruncation"
+                                        FontSize="Title"/>
+
+                            <Button Grid.Column="1"
+                                    ImageSource="cart.png"
+                                    BackgroundColor="Transparent"/>
+                            <Button Grid.Column="2"
+                                    ImageSource="heart_outline.png"
+                                    BackgroundColor="Transparent"/>
+                               
+                            </Grid>
+
+                            
+                        </StackLayout>
+                    </Frame>
+
+                <StackLayout Orientation="Horizontal" Padding="22,0,22,0">
+                    <Label Text="TOP MAS VENDIDOS" FontSize="Subtitle" HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>
+                    <Button Text="VER MAS >>" BackgroundColor="Transparent" VerticalOptions="Center" HorizontalOptions="End" FontSize="Subtitle"/>
+                </StackLayout>
+
+                <CollectionView
+                    x:Name="ListaProductossss"
+                    Grid.Row="5"
+                    Margin="20,0,20,0"
+                    ItemsSource="{Binding ListaTopProductos}"
+                    VerticalScrollBarVisibility="Never"
+                    SelectionMode="Single" HeightRequest="565" >
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout
+                        HorizontalItemSpacing="15"
+                        Orientation="Vertical"
+                        Span="2"
+                        VerticalItemSpacing="15" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <pancake:PancakeView
+                                            Padding="0,0,0,15"
+                                            BackgroundColor="LightGray"
+                                            CornerRadius="12"
+                                            HasShadow="False">
+                                    <Grid RowDefinitions="auto, auto, auto, auto, auto, auto" RowSpacing="0">
+                                            
+                                        <pancake:PancakeView
+                                                Padding="2,4"
+                                                BackgroundColor="Black"
+                                                CornerRadius="12,0,0,20"
+                                                HasShadow="False"
+                                                HeightRequest="20"
+                                                HorizontalOptions="Start"
+                                                VerticalOptions="Start"
+                                                WidthRequest="30">  
+                                            <Label HorizontalOptions="Center">
+                                                <Label.FormattedText>
+                                                    <FormattedString>
+                                                        <Span
+                                                        FontFamily="FontMontserratSemiBold"
+                                                        FontSize="8"
+                                                        Text="{Binding Descuento, StringFormat='{0:N0}%'}"
+                                                        TextColor="White" />
+                                                        <Span
+                                                        FontFamily="FontMontserratSemiBold"
+                                                        FontSize="8"
+                                                        Text="&#10;OFF"
+                                                        TextColor="Black" />
+                                                    </FormattedString>
+                                                </Label.FormattedText>
+                                            </Label>
+                                            <pancake:PancakeView.Triggers>
+                                                <DataTrigger
+                                                    Binding="{Binding Descuento}"
+                                                    TargetType="pancake:PancakeView"
+                                                    Value="0">
+                                                    <Setter Property="IsVisible" Value="False" />
+                                                </DataTrigger>
+                                            </pancake:PancakeView.Triggers>
+                                        </pancake:PancakeView>
+                                        <Image
+                                            Grid.Row="0"
+                                            Margin="0,5,0,0"
+                                            Aspect="AspectFit"
+                                            HeightRequest="120"
+                                            Source="{Binding ImagenURL}" />
+                                        <Label
+                                            Grid.Row="1"
+                                            Margin="10,0"
+                                            FontFamily="FontMontserratSemiBold"
+                                            FontSize="16"
+                                            HorizontalTextAlignment="Center"
+                                            LineBreakMode="TailTruncation"
+                                            MaxLines="2"
+                                            Text="{Binding Nombre}" />
+                                        <StackLayout
+                                            Grid.Row="2"
+                                            HorizontalOptions="Center"
+                                            Orientation="Horizontal"
+                                            Spacing="2">
+                                            <Image
+                                                Aspect="AspectFit"
+                                                HeightRequest="8"
+                                                HorizontalOptions="Start"
+                                                Source="star"
+                                                WidthRequest="8" />
+                                            <Label
+                                                FontSize="8"
+                                                Text="{Binding Rating, StringFormat='{0:N1}  |'}"
+                                                TextColor="{StaticResource colorGray95}"
+                                                VerticalTextAlignment="Center" />
+                                            <Label
+                                                FontSize="8"
+                                                Text="{Binding review, StringFormat=' {0} Review'}"
+                                                TextColor="{StaticResource colorGray95}"
+                                                VerticalTextAlignment="Center" />
+                                        </StackLayout>
+                                        <BoxView
+                                            Grid.Row="3"
+                                            Margin="0,10,0,5"
+                                            BackgroundColor="{StaticResource colorGrayEA}"
+                                            HeightRequest="1"
+                                            HorizontalOptions="FillAndExpand" />
+                                        <StackLayout
+                                            Grid.Row="4"
+                                            HorizontalOptions="Center"
+                                            Orientation="Horizontal">
+                                                        <Label
+                                                        FontSize="10"
+                                                        Text="{Binding oldPrice, StringFormat='{0:G}'}"
+                                                        TextColor="{StaticResource colorGray95}"
+                                                        TextDecorations="Strikethrough"
+                                                        VerticalTextAlignment="Center">
+                                                    <Label.Triggers>
+                                                        <DataTrigger
+                                                                Binding="{Binding Precio}"
+                                                                TargetType="Label"
+                                                                Value="0">
+                                                            <Setter Property="IsVisible" Value="False" />
+                                                        </DataTrigger>
+                                                    </Label.Triggers>
+                                                </Label>
+                                                <Label                                                            
+                                                            FontFamily="FontMontserratMedium"
+                                                            FontSize="16"
+                                                            HorizontalTextAlignment="Start"
+                                                            Text="{Binding Precio, StringFormat='${0:G}'}"
+                                                            TextColor="{StaticResource colorRedFF}"
+                                                            VerticalTextAlignment="Center" />                                     
+                                                
+                                        </StackLayout>
+                                        <StackLayout
+                                            Orientation="Horizontal"
+                                            Grid.Row="5">
+                                            <Button 
+                                                        ImageSource="carritito.png"
+                                                        BackgroundColor="Transparent"
+                                                        HorizontalOptions="EndAndExpand"/>
+                                            <Button 
+                                                        ImageSource="corazoncito.png"
+                                                        BackgroundColor="Transparent"
+                                                    HorizontalOptions="End"/>
+
+                                        </StackLayout>
+                                    </Grid>
+                                </pancake:PancakeView>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>                    
+                        <StackLayout HeightRequest="250" Margin="0,20,0,20">
+                            <CarouselView ItemsSource="{Binding carrusel2}" IndicatorView="Indicador2">
+                                <CarouselView.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackLayout >
+                                            <Image Source="{Binding Imagen}"  Aspect="AspectFit" />
+                                        </StackLayout>
+                                    </DataTemplate>
+                                </CarouselView.ItemTemplate>
+                            </CarouselView>
+                            <IndicatorView x:Name="Indicador2" IndicatorsShape="Square" IndicatorColor="LightGray" SelectedIndicatorColor="Black" HorizontalOptions="CenterAndExpand" Margin="0,2"  />
+                        </StackLayout>                    
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

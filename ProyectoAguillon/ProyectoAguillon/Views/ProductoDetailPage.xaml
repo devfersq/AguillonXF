@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             xmlns:shadows="clr-namespace:Sharpnado.Shades;assembly=Sharpnado.Shadows"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ProyectoAguillon.Views.ProductoDetailPage"
+             Title="Detalle Producto">
+
+    <Shell.TitleView>
+
+        <StackLayout Orientation="Horizontal" Padding="0,0,5,0">
+            <Image Source="logoblack.png" HeightRequest="200"
+               HorizontalOptions="CenterAndExpand"
+               VerticalOptions="CenterAndExpand"/>
+            <Image Source="carrititito.png" HeightRequest="200"
+               HorizontalOptions="CenterAndExpand"
+               VerticalOptions="CenterAndExpand"
+                   BackgroundColor="Black"/>
+        </StackLayout>
+
+    </Shell.TitleView>
+
+
+    <ScrollView>
+        <StackLayout >            
+
+            <Frame HasShadow="True"
+                                BorderColor="DarkGray"
+                                CornerRadius="10"
+                                Margin="10"                                
+                                HorizontalOptions="CenterAndExpand"
+                                VerticalOptions="Center">
+                <StackLayout>
+
+                    <Label Text="{Binding Nombre}"
+                                        HorizontalOptions="Start"
+                                        FontSize="Title" FontAttributes="Bold" LineBreakMode="TailTruncation" MaxLines="2"/>
+
+                    <Image Source="{Binding ImagenURL}" 
+                                        Aspect="AspectFit"
+                                        HeightRequest="150"                                                                             
+                                        />
+                                        
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="$29.90"
+                                        FontAttributes="Italic"
+                                        HorizontalOptions="Start"                                           
+                                        LineBreakMode="TailTruncation"
+                                        FontSize="Subtitle"
+                                        TextDecorations="Strikethrough"
+                               VerticalOptions="Center"/>
+                        <Label Text="-5%"
+                                        FontAttributes="Italic"
+                                        HorizontalOptions="Start"                                           
+                                        LineBreakMode="TailTruncation"
+                                        FontSize="25"
+                                        />
+                    </StackLayout>
+                    
+                    
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.60*" />
+                            <ColumnDefinition Width="0.20*" />
+                            <ColumnDefinition Width="0.20*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <StackLayout Orientation="Horizontal"
+                                     Grid.Column="0">
+                            <Label Text="$" 
+                                FontSize="Title"
+                                VerticalOptions="Center"/>
+                            <Label Text="{Binding Precio}" 
+                                FontSize="32"
+                                VerticalOptions="Center" FontAttributes="Bold"/>
+                        </StackLayout>
+
+                        <Button Grid.Column="1"
+                                    ImageSource="cart.png"
+                                    BackgroundColor="Transparent"
+                                VerticalOptions="Center"/>
+                        <Button Grid.Column="2"
+                                    ImageSource="heart_outline.png"
+                                    BackgroundColor="Transparent"
+                                VerticalOptions="Center"/>
+
+                    </Grid>
+
+                    <Label Text="VARIEDADES"
+                           FontSize="Title"/>
+
+                    <Grid Padding="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.25*" />
+                            <ColumnDefinition Width="0.25*" />
+                            <ColumnDefinition Width="0.25*"/>
+                            <ColumnDefinition Width="0.25*"/>
+                        </Grid.ColumnDefinitions>
+                        
+                            <Button Text="750 ML" 
+                                FontSize="Small"
+                                VerticalOptions="Center"
+                                   Grid.Column="0" BorderColor="Black" BorderWidth="1"/>
+                            <Button Text="500 ML" 
+                                FontSize="Small"
+                                VerticalOptions="Center"
+                                   Grid.Column="1" BorderColor="Black" BorderWidth="1" BackgroundColor="White"/>
+                        <Button Text="250 ML" 
+                                FontSize="Small"
+                                VerticalOptions="Center"
+                                   Grid.Column="2" BorderColor="Black" BorderWidth="1" />
+                        <Button Text="100 ML" 
+                                FontSize="Small"
+                                VerticalOptions="Center"
+                                Grid.Column="3" BorderColor="Black" BorderWidth="1" />                        
+                    </Grid>
+
+                    <Label Text="STOCK"
+                           FontSize="Title"
+                           HorizontalOptions="Start"/>
+                                  
+                        
+
+                        <StackLayout Orientation="Horizontal" Padding="5,0,10,0" >
+                            <Label Text="Sucursal Abasolo"
+                                   FontSize="Subtitle"                           
+                                   HorizontalOptions="Start"/>
+                            <Label Text="Tienda en línea"
+                                   FontSize="Subtitle"                           
+                                   HorizontalOptions="EndAndExpand"/>
+                        </StackLayout>
+
+                    <StackLayout Orientation="Horizontal" Padding="5,0,10,10" >
+                        <Label Text="15 disponibles"
+                               FontSize="Subtitle"                           
+                               HorizontalOptions="Start"
+                               FontAttributes="Bold"/>
+                        <Label Text="10 disponibles"
+                               FontSize="Subtitle"                           
+                               HorizontalOptions="EndAndExpand"
+                               FontAttributes="Bold"/>
+                    </StackLayout>
+
+
+
+
+                    <Label Text="{Binding Descripcion}"
+                                        FontAttributes="Italic"
+                                        HorizontalOptions="Start"
+                                        MaxLines="2"
+                                        LineBreakMode="TailTruncation"
+                                        FontSize="Large"/>
+
+
+                </StackLayout>
+            </Frame>
+
+
+        </StackLayout>
+
+  
+    </ScrollView>
+</ContentPage>

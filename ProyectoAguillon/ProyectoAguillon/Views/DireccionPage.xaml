@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ProyectoAguillon.Views.DireccionPage">
+
+    <Shell.TitleView>
+
+        <StackLayout Orientation="Horizontal" >
+            <Image Source="logoblack.png" HeightRequest="200"
+               HorizontalOptions="CenterAndExpand"
+               VerticalOptions="CenterAndExpand"/>
+            <Image Source="cart.png" HorizontalOptions="End" VerticalOptions="Center" WidthRequest="40" />
+        </StackLayout>
+
+    </Shell.TitleView>
+
+    <ContentPage.Content>
+
+        <StackLayout >
+            <Label Text="Selecciona dónde recibiras tus compras" FontSize="Title" FontAttributes="Bold"/>
+
+            <ListView ItemsSource="{Binding DireccionesCliente}"  HasUnevenRows="True" Header="Entrega a domicilio" HeightRequest="650" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout HorizontalOptions="StartAndExpand" >
+
+                                <StackLayout Orientation="Horizontal">
+                                    <RadioButton/>
+                                    <Label                                
+                                    Text="{Binding CodigoPostal}"
+                                    TextColor="Black"
+                                    FontSize="Subtitle"
+                                    FontAttributes="Bold"
+                                        VerticalTextAlignment="Center"/>
+                                </StackLayout>
+
+
+                                <Label                                
+                                Text="{Binding DescripcionDireccion}"
+                                TextColor="Black"
+                                    Margin="40,0,0,0"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <StackLayout Orientation="Horizontal">
+                <Button Text="Agregar dirección" HorizontalOptions="CenterAndExpand" BackgroundColor="Transparent" TextColor="Blue"></Button>
+                <Button Text="Editar direcciones" HorizontalOptions="CenterAndExpand" BackgroundColor="Transparent" TextColor="Blue"></Button>
+            </StackLayout>
+            <Label Text="" BackgroundColor="LightGray"/>            
+            <ListView ItemsSource="{Binding sucursales}"  HasUnevenRows="True" Header="Recoger en sucursal" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout HorizontalOptions="StartAndExpand" >
+
+                                <StackLayout Orientation="Horizontal">
+                                    <RadioButton/>
+                                    <Label                                
+                                    Text="{Binding Nombre}"
+                                    TextColor="Black"
+                                    FontSize="Subtitle"
+                                    FontAttributes="Bold"
+                                        VerticalTextAlignment="Center"/>
+                                </StackLayout>
+
+                                
+                                <Label                                
+                                Text="{Binding Direccion}"
+                                TextColor="Black"
+                                    Margin="40,0,0,0"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"             
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"             
+             x:Class="ProyectoAguillon.Controls.FlyoutHeader"
+             HeightRequest="200">
+    <ContentPage.Content>
+        <Grid >
+            <Image Aspect="AspectFill" 
+               Source="logoblack.jpg" 
+               Opacity="0.6" />
+            <!--<Label Text="Aguillón" 
+               TextColor="White" 
+               FontAttributes="Bold" 
+               HorizontalTextAlignment="Center"
+               VerticalTextAlignment="Center" />-->
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:ProyectoAguillon.Controls"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:views="clr-namespace:ProyectoAguillon.Views"        
+             FlyoutHeaderBehavior="CollapseOnScroll"
+             mc:Ignorable="d"
+             x:Class="ProyectoAguillon.AppShell">
+
+    <Shell.Resources>
+        <Style x:Key="BaseStyle"
+               TargetType="Element">
+            <Setter Property="Shell.BackgroundColor"
+                    Value="Black" />
+            <Setter Property="Shell.ForegroundColor"
+                    Value="White" />
+            <Setter Property="Shell.TitleColor"
+                    Value="White" />
+            <Setter Property="Shell.DisabledColor"
+                    Value="#B4FFFFFF" />
+            <Setter Property="Shell.UnselectedColor"
+                    Value="#95FFFFFF" />
+        </Style>
+        
+        <Style TargetType="FlyoutItem"
+               BasedOn="{StaticResource BaseStyle}" />
+       
+        
+    </Shell.Resources>
+
+    <Shell.FlyoutHeaderTemplate>
+        <DataTemplate>
+            <Grid HeightRequest="200">
+                <Image Aspect="AspectFill" Source="logo.png" BackgroundColor="Black"/>
+                <Label Text="" 
+               TextColor="Black" 
+               FontAttributes="Bold" 
+               HorizontalTextAlignment="Center"
+               VerticalTextAlignment="Center" />
+            </Grid>
+        </DataTemplate>
+    </Shell.FlyoutHeaderTemplate>
+
+    <FlyoutItem Title="Home" Icon="home.png" Route="Home">
+        <Tab Title="Home" Icon="home.png" Route="HomeTab">
+            <ShellContent Route="HomePage">
+                <views:HomePage/>
+            </ShellContent>       
+        </Tab>
+        
+        <Tab Title="Chat" Icon="chat.png" Route="ChatTab">
+            <ShellContent Route="ChatPage">
+                <views:SearchPage/>
+            </ShellContent>
+        </Tab>
+        
+        <Tab Title="Favoritos" Icon="favoritos.png" Route="FavoritosTab">
+            <ShellContent Route="FavoritosPage">
+                <views:HomePage/>
+            </ShellContent>
+        </Tab>
+        
+        <Tab Title="Cuenta" Icon="cuenta.png" Route="CuentaTab">
+            <ShellContent Route="CuentaPage">
+                <views:HomePage/>
+            </ShellContent>
+        </Tab>
+        <Tab Route="BuscarTab" Icon="lupaFlyer.png" Title="Buscar">
+            <ShellContent                                 
+                ContentTemplate="{DataTemplate views:SearchPage}" 
+                Route="BuscarPage"/>
+        </Tab>
+    </FlyoutItem>
+    
+    <FlyoutItem Title="Chat" Icon="chat.png" Route="Chat"  >
+        <Tab Title="Chat" Icon="Chat.png" Route="ChatTab">
+            <ShellContent Title="Chat" ContentTemplate="{DataTemplate views:PruebaPage}" Route="ChatPage"/>
+        </Tab>
+    </FlyoutItem>
+    <FlyoutItem Title="Favoritos" Icon="favoritos.png" Route="Favoritos" >
+        <Tab Route="FavoritosTab">
+            <ShellContent Title="Chat" ContentTemplate="{DataTemplate views:HomePage}" Route="FavoritosPage"/>
+        </Tab>
+    </FlyoutItem>
+    <FlyoutItem Title="Cuenta" Icon="cuenta.png" Route="Cuenta" >
+        <Tab Route="CuentaTab">
+            <ShellContent Title="Chat" ContentTemplate="{DataTemplate views:HomePage}" Route="CuentaPage"/>
+        </Tab>
+    </FlyoutItem>
+
+    <!--<MenuItem Text="Buscar Productos" IconImageSource="lupaFlyer" Command="Binding BuscarCommand"/>-->
+
+    <FlyoutItem Title="Buscar Productos" Icon="lupaFlyer.png" Route="Buscar" >
+        
+        <Tab Title="Home" Icon="home.png" Route="HomeTab">
+            <ShellContent Route="HomePage">
+                <views:HomePage/>
+            </ShellContent>
+        </Tab>
+
+        <Tab Title="Chat" Icon="chat.png" Route="ChatTab">
+            <ShellContent Route="ChatPage">
+                <views:SearchPage/>
+            </ShellContent>
+        </Tab>
+
+        <Tab Title="Favoritos" Icon="favoritos.png" Route="FavoritosTab">
+            <ShellContent Route="FavoritosPage">
+                <views:HomePage/>
+            </ShellContent>
+        </Tab>
+
+        <Tab Title="Cuenta" Icon="cuenta.png" Route="CuentaTab">
+            <ShellContent Route="CuentaPage">
+                <views:HomePage/>
+            </ShellContent>
+        </Tab>
+        <Tab Route="BuscarTab" Icon="lupaFlyer.png" Title="Buscar">
+            <ShellContent                                 
+                ContentTemplate="{DataTemplate views:SearchPage}" 
+                Route="BuscarPage"/>
+        </Tab>
+    </FlyoutItem>
+
+</Shell>
